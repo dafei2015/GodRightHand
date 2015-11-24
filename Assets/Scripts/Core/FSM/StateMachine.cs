@@ -177,7 +177,7 @@ public class StateMachine
     /// <returns>是？不是</returns>
     public bool IsInState(uint stateId)
     {
-        return mCurrentState == null ? false : mCurrentState.GetStateID() == stateId;
+        return mCurrentState != null && mCurrentState.GetStateID() == stateId;
     }
 
 
