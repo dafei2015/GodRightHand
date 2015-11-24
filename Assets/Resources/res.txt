@@ -1,0 +1,6 @@
+Buff=Json
+Equipment=Json
+Goods=Json
+Monster=Json
+MonsterSkill=Json
+Skill=Json

@@ -4,6 +4,9 @@ using UnityEngine;
 
 #endregion
 
+/// <summary>
+///     初始化
+/// </summary>
 public class Initializer : MonoBehaviour
 {
     private void Awake()
@@ -20,6 +23,6 @@ public class Initializer : MonoBehaviour
         this.gameObject.AddComponent<ResMgr>();
         this.gameObject.AddComponent<UIMgr>();
         this.gameObject.AddComponent<AppMgr>();
-        EntranceSceneCtrl.Instance.SendEvent(EventDef.TableDataFinish);
+        this.gameObject.AddComponent<TableDataMgr>();
     }
 }

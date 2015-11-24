@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-
+﻿/// <summary>
+///     场景管理
+/// </summary>
 public class EntranceSceneCtrl : EventNode, IEventListener
 {
     public static EntranceSceneCtrl Instance { get; private set; }
+
     public bool HandleEvent(int id, object param1, object param2)
     {
         switch (id)
