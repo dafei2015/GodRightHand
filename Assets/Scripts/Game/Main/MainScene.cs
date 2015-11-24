@@ -1,25 +1,18 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 #endregion
 
-public class MainScene : BaseUI
+public class MainScene : BaseUI,UIMgr.ILoadUIListener
 {
-    private List<string> mTranNames = new List<string>() {"BtnMenu", "BtnTask", "BtnFigure", "ExpBar", "TextExp"};
+    private Scrollbar mExpBar;
+    private Text mExpText;
+    private List<string> mTranNames = new List<string> {"BtnMenu", "BtnTask", "BtnFigure", "ExpBar", "TextExp"};
     private List<Transform> mTransforms = new List<Transform>();
 
-    private Scrollbar mExpBar = null;
-    private Text mExpText = null;
-    protected override void OnAwake()
-    {
-        base.OnAwake();
-    }
-
-   
     protected override void OnInit()
     {
         ComUtil.GetTransformInChild(mTranNames, CacheTransform, ref mTransforms);
@@ -48,36 +41,19 @@ public class MainScene : BaseUI
             {
                 mExpText = tran.GetComponent<Text>();
             }
-
         }
     }
 
-    #region 按钮点击事件
-
-    private void ButtonClickMenu()
+    protected override void OnAwake()
     {
-        Log.Debug("1");
+        base.OnAwake();
     }
-
-    private void ButtonClickTask()
-    {
-        Log.Debug("2");
-
-    }
-
-    private void ButtonClickFigure()
-    {
-        Log.Debug("3");
-
-    }
-
-    #endregion
-
 
     protected override void OnShow(object param)
     {
         base.OnShow(param);
     }
+
     protected override void OnHide()
     {
         base.OnHide();
@@ -86,5 +62,32 @@ public class MainScene : BaseUI
     protected override void OnDestroy()
     {
         base.OnDestroy();
+    }
+
+    #region 按钮点击事件
+
+    private void ButtonClickMenu()
+    {
+        UIMgr.Instance.ShowUI(UIDef.SettingsUI,typeof(SettingsCtrl),this);
+    }
+
+    private void ButtonClickTask()
+    {
+        Log.Debug("2");
+    }
+
+    private void ButtonClickFigure()
+    {
+        Log.Debug("3");
+    }
+
+    #endregion
+
+    public void FiniSh(BaseUI ui)
+    {
+    }
+
+    public void Failure()
+    {
     }
 }

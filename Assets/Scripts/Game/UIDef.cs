@@ -3,6 +3,8 @@
 public class UIDef : MonoBehaviour
 {
     public const string MainUI = "CanvasMain";
+
+    public const string SettingsUI = "CanvasSetting";
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,6 +23,8 @@ public class UIDef : MonoBehaviour
         {
             case MainUI:
                 return 0;
+            case SettingsUI:
+                return 1;
             
         }
         return 0;

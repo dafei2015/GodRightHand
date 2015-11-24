@@ -5,4 +5,5 @@ Monster=Json
 MonsterSkill=Json
 Skill=Json
 CanvasMain=Main
+CanvasSetting=Main
 field=Sound
