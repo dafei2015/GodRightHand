@@ -4,3 +4,5 @@ Goods=Json
 Monster=Json
 MonsterSkill=Json
 Skill=Json
+CanvasMain=Main
+field=Sound

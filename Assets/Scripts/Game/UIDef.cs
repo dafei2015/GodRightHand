@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class UIDef : MonoBehaviour 
+public class UIDef : MonoBehaviour
 {
-
+    public const string MainUI = "CanvasMain";
 	// Use this for initialization
 	void Start () 
 	{
@@ -18,6 +17,12 @@ public class UIDef : MonoBehaviour
 
     public static int GetUIOrderLayer(string uiName)
     {
-        throw new System.NotImplementedException();
+        switch (uiName)
+        {
+            case MainUI:
+                return 0;
+            
+        }
+        return 0;
     }
 }

@@ -1,7 +1,7 @@
 ﻿/// <summary>
 ///     场景管理
 /// </summary>
-public class EntranceSceneCtrl : EventNode, IEventListener
+public class EntranceSceneCtrl : EventNode, IEventListener,UIMgr.ILoadUIListener
 {
     public static EntranceSceneCtrl Instance { get; private set; }
 
@@ -10,6 +10,7 @@ public class EntranceSceneCtrl : EventNode, IEventListener
         switch (id)
         {
             case EventDef.TableDataFinish:
+                UIMgr.Instance.ShowUI(UIDef.MainUI,typeof(MainScene),this);
                 Log.Debug("开始游戏");
                 break;
         }
@@ -28,14 +29,17 @@ public class EntranceSceneCtrl : EventNode, IEventListener
         AttachEventListener(EventDef.TableDataFinish, this);
     }
 
-    // Use this for initialization
-    private void Start()
-    {
-    }
-
     private void OnDestroy()
     {
         //卸载一个消息
         DetachEventListener(EventDef.TableDataFinish, this);
+    }
+
+    public void FiniSh(BaseUI ui)
+    {
+    }
+
+    public void Failure()
+    {
     }
 }
